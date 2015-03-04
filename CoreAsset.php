@@ -16,7 +16,7 @@ class CoreAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@frenzelgmbh/cm-comments/assets';
+    public $sourcePath = '@net/frenzel/comment/assets';
     
     /**
      * @inheritdoc

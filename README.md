@@ -39,5 +39,5 @@ Configuration
 - Run migrations:
 
 ```
-php yii migrate --migrationPath=@frenzelgmbh/cm-comments/migrations
+php yii migrate --migrationPath=@net/frenzel/comment/migrations
 ```
