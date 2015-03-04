@@ -10,13 +10,28 @@
 ?>
 
 <div id="comment">
-    <div id="comment-list" data-comment="list">
-        <?= $this->render('_index_item', ['models' => $models]) ?>
-    </div>
-    <!--/ #comment-list -->
 
-    <?php if (!\Yii::$app->user->isGuest) : ?>
-        <h3><?= \Yii::t('comment', 'Comments') ?></h3>
-        <?= $this->render('_form', ['model' => $model]); ?>
-    <?php endif; ?>
+<div class="row">
+	<div class="col-md-6">
+<div class="panel panel-info">
+	<div class="panel-body">
+		<div id="comment-list" data-comment="list">
+	        <?= $this->render('_index_item', ['models' => $models]) ?>
+	    </div>
+    	<!--/ #comment-list -->
+    </div>
+</div>
+	</div>
+	<div class="col-md-6">
+<div class="panel">
+	<div class="panel-body">
+		<?php if (!\Yii::$app->user->isGuest) : ?>
+	        <small><?= \Yii::t('comment', 'Kommentar') ?></small>
+	        <?= $this->render('_form', ['model' => $model]); ?>
+    	<?php endif; ?>
+	</div>
+</div>
+	</div>	
+</div>
+    
 </div>
