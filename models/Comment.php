@@ -42,7 +42,7 @@ class Comment extends \yii\db\ActiveRecord
         return '{{%comment}}';
     }
 
-	/**
+    /**
      * @inheritdoc
      */
     public function behaviors()
@@ -98,7 +98,8 @@ class Comment extends \yii\db\ActiveRecord
      */
     public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'author_id']);
+        $Module = \Yii::$app->getModule('comment');
+        return $this->hasOne($Module->userIdentityClass, ['id' => 'created_by']);
     }
 
     /**
@@ -140,6 +141,7 @@ class Comment extends \yii\db\ActiveRecord
         }
         return $tree;
     }
+    
     /**
      * Delete comment.
      *
@@ -185,11 +187,11 @@ class Comment extends \yii\db\ActiveRecord
         /** @var ActiveRecord $class */
         $class = Model::findIdentity($this->model_class);
         if ($class === null) {
-            $this->addError($attribute, Module::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
+            $this->addError($attribute, \Yii::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
         } else {
             $model = $class->name;
             if ($model::find()->where(['id' => $this->model_id]) === false) {
-                $this->addError($attribute, Module::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
+                $this->addError($attribute, \Yii::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
             }
         }
     }
