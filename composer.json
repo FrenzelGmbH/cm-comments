@@ -1,0 +1,34 @@
+{
+  "name": "frenzelgmbh/cm-comments",
+  "description": "Comments module for Yii2",
+  "keywords": [
+    "yii",
+    "comment",
+    "widget",
+    "module"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "support": {
+    "issues": "https://github.com/frenzelgmbh/cm-comments/issues",
+    "source": "https://github.com/frenzelgmbh/cm-comments"
+  },
+  "authors": [
+    {
+      "name": "Philipp Frenzel",
+      "email": "philipp@frenzel.net",
+      "homepage": "http://frenzel.net/"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "2.0.*",
+    "rmrevin/yii2-fontawesome": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "net\\frenzel\\comment\\": ""
+    }
+  }
+}
