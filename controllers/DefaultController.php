@@ -13,6 +13,8 @@ use yii\web\HttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
+use net\frenzel\comment\Module;
+
 /**
  * Default Controller
  */
