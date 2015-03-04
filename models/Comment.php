@@ -13,6 +13,7 @@ namespace net\frenzel\comment\models;
  * @property integer $id
  * @property string $entity
  * @property integer $entity_id
+ * @property integer $parent_id
  * @property string $text
  * @property integer $deleted
  * @property integer $created_by
@@ -42,12 +43,23 @@ class Comment extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function scenarios()
+    {
+        return [
+            'create' => ['parent_id', 'entity', 'entity_id', 'text'],
+            'update' => ['text'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
             [['text'], 'required'],
             [['text','entity'], 'string'],
-            [['created_by', 'updated_by', 'created_at', 'updated_at','deleted_at','entity_id'], 'integer'],
+            [['created_by', 'updated_by', 'created_at', 'updated_at','deleted_at','entity_id','parent_id'], 'integer'],
         ];
     }
 
@@ -76,5 +88,25 @@ class Comment extends \yii\db\ActiveRecord
         /** @var Comments\Module $Module */
         $Module = \Yii::$app->getModule('comment');
         return $this->hasOne($Module->userIdentityClass, ['id' => 'created_by']);
+    }
+
+    /**
+     * Get comments tree.
+     *
+     * @param integer $model Model ID
+     * @param integer $class Model class ID
+     *
+     * @return array|\yii\db\ActiveRecord[] Comments tree
+     */
+    public static function getTree($model, $class)
+    {
+        $models = self::find()->where([
+            'entity_id' => $model,
+            'entity' => $class
+        ])->orderBy(['parent_id' => 'ASC', 'created_at' => 'ASC'])->with(['author'])->all();
+        if ($models !== null) {
+            $models = self::buildTree($models);
+        }
+        return $models;
     }
 }

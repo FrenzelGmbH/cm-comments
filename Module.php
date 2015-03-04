@@ -8,6 +8,11 @@ namespace net\frenzel\comment;
 
 class Module extends \yii\base\Module
 {
+    /**
+     * @inheritdoc
+     */
+    public static $name = 'comments';
+    
     /** @var string|null */
     public $userIdentityClass = null;
     

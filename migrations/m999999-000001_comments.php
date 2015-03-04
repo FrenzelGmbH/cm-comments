@@ -27,6 +27,7 @@ class m999999_000001_comments extends Migration
             'entity'                => Schema::TYPE_STRING,
             'entity_id'             => Schema::TYPE_INTEGER . ' NOT NULL',
             'text'                  => Schema::TYPE_TEXT,
+            'parent_id'             => Schema::TYPE_INTEGER . ' DEFAULT NULL',
             
             // blamable
             'created_by'            => Schema::TYPE_INTEGER . ' NOT NULL',
