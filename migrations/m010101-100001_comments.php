@@ -7,7 +7,7 @@ use yii\db\Migration;
  * @author Philipp Frenzel <philipp@frenzel.net>
  * generates the mandanten table(s)
  */
-class m999999_000001_comments extends Migration
+class m010101_100001_comments extends Migration
 {
     public function up()
     {
