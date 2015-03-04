@@ -17,15 +17,15 @@ use yii\helpers\Url;
                 <div data-comment="append">
                     <div class="media-heading">
                         <h4><?= $comment->author->username ?>&nbsp;
-                        <small><?= $comment->created_at ?></small></h4>
+                        <small><?= \Yii::$app->formatter->asRelativeTime($comment->created_at) ?></small></h4>
                         <?php if ($comment->parent_id) { ?>
                             &nbsp;
-                            <a href="#comment-<?= $comment->parent_id ?>" data-comment="ancor" data-comment-parent="<?= $comment->parent_id ?>"><i class="icon-arrow-up"></i></a>
+                            <a href="#comment-<?= $comment->parent_id ?>" data-comment="ancor" data-comment-parent="<?= $comment->parent_id ?>"><i class="fa fa-arrow-up"></i></a>
                         <?php } ?>
                         <?php if (is_null($comment->deleted_at)) { ?>
-                            <div class="pull-right" data-comment="tools">
+                            <div class="media-right" data-comment="tools">
                                 <?php if (!Yii::$app->user->isGuest) { ?>
-                                    <a href="#" data-comment="reply" data-comment-id="<?= $comment->id ?>" class="btn btn-success">
+                                    <a href="#" data-comment="reply" data-comment-id="<?= $comment->id ?>">
                                         <i class="fa fa-reply"></i> <?= \Yii::t('comment', 'antworten') ?>
                                     </a>
                                 <?php } ?>
