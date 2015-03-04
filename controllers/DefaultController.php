@@ -13,7 +13,7 @@ use yii\web\HttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
-use net\frenzel\comment\Module;
+use \net\frenzel\comment\models\Comment;
 
 /**
  * Default Controller
@@ -37,7 +37,7 @@ class DefaultController extends Controller
         return $behaviors;
     }
 
-	/**
+    /**
      * Create comment.
      */
     public function actionCreate()
@@ -50,7 +50,7 @@ class DefaultController extends Controller
                     return $this->tree($model);
                 } else {
                     Yii::$app->response->setStatusCode(500);
-                    return Module::t('comment', 'FRONTEND_FLASH_FAIL_CREATE');
+                    return \Yii::t('comment', 'FRONTEND_FLASH_FAIL_CREATE');
                 }
             } elseif (Yii::$app->request->isAjax) {
                 Yii::$app->response->setStatusCode(400);
@@ -76,7 +76,7 @@ class DefaultController extends Controller
                     return $model->content;
                 } else {
                     Yii::$app->response->setStatusCode(500);
-                    return Module::t('comment', 'FRONTEND_FLASH_FAIL_UPDATE');
+                    return \Yii::t('comment', 'FRONTEND_FLASH_FAIL_UPDATE');
                 }
             } elseif (Yii::$app->request->isAjax) {
                 Yii::$app->response->setStatusCode(400);
@@ -94,10 +94,10 @@ class DefaultController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         if ($this->findModel($id)->deleteComment()) {
-            return Module::t('comment', 'FRONTEND_WIDGET_COMMENTS_DELETED_COMMENT_TEXT');
+            return \Yii::t('comment', 'FRONTEND_WIDGET_COMMENTS_DELETED_COMMENT_TEXT');
         } else {
             Yii::$app->response->setStatusCode(500);
-            return Module::t('comment', 'FRONTEND_FLASH_FAIL_DELETE');
+            return \Yii::t('comment', 'FRONTEND_FLASH_FAIL_DELETE');
         }
     }
 
@@ -115,8 +115,18 @@ class DefaultController extends Controller
         if ($model !== null) {
             return $model;
         } else {
-            throw new HttpException(404, Module::t('comment', 'FRONTEND_FLASH_RECORD_NOT_FOUND'));
+            throw new HttpException(404, \Yii::t('comment', 'FRONTEND_FLASH_RECORD_NOT_FOUND'));
         }
     }
 
+    /**
+     * @param Comment $model Comment
+     *
+     * @return string Comments list
+     */
+    protected function tree($model)
+    {
+        $models = Comment::getTree($model->entity_id, $model->entity);
+        return $this->renderPartial('@net/frenzel/comment/views/widgets/views/_index_item', ['models' => $models]);
+    }
 }

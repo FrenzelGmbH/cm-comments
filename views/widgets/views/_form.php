@@ -17,5 +17,5 @@ use yii\helpers\Html;
 <?= Html::activeHiddenInput($model, 'parent_id', ['data-comment' => 'parent-id']) ?>
 <?= Html::activeHiddenInput($model, 'entity') ?>
 <?= Html::activeHiddenInput($model, 'entity_id') ?>
-<?= Html::submitButton(Yii::t('comment', 'FRONTEND_WIDGET_COMMENTS_FORM_SUBMIT'), ['class' => 'btn btn-danger btn-lg']); ?>
+<?= Html::submitButton(Yii::t('comment', 'FRONTEND_WIDGET_COMMENTS_FORM_SUBMIT'), ['class' => 'btn btn-success']); ?>
 <?= Html::endForm(); ?>

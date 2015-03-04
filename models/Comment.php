@@ -29,6 +29,19 @@ namespace net\frenzel\comment\models;
  */
 class Comment extends \yii\db\ActiveRecord
 {
+    /**
+     * @var null|array|\yii\db\ActiveRecord[] Comment children
+     */
+    protected $_children;
+    
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return '{{%comments}}';
+    }
+
 	/**
      * @inheritdoc
      */
@@ -81,13 +94,11 @@ class Comment extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return queries\CommentQuery
+     * @return \yii\db\ActiveQuery
      */
     public function getAuthor()
     {
-        /** @var Comments\Module $Module */
-        $Module = \Yii::$app->getModule('comment');
-        return $this->hasOne($Module->userIdentityClass, ['id' => 'created_by']);
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 
     /**
@@ -139,5 +150,66 @@ class Comment extends \yii\db\ActiveRecord
         $this->touch('deleted_at');
         $this->text = '';
         return $this->save(false, ['deleted_at', 'text']);
+    }
+
+    /**
+     * $_children getter.
+     *
+     * @return null|array|]yii\db\ActiveRecord[] Comment children
+     */
+    public function getChildren()
+    {
+        return $this->_children;
+    }
+    
+    /**
+     * $_children setter.
+     *
+     * @param array|\yii\db\ActiveRecord[] $value Comment children
+     */
+    public function setChildren($value)
+    {
+        $this->_children = $value;
+    }
+
+    /**
+     * Model ID validation.
+     *
+     * @param string $attribute Attribute name
+     * @param array $params Attribute params
+     *
+     * @return mixed
+     */
+    public function validateModelId($attribute, $params)
+    {
+        /** @var ActiveRecord $class */
+        $class = Model::findIdentity($this->model_class);
+        if ($class === null) {
+            $this->addError($attribute, Module::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
+        } else {
+            $model = $class->name;
+            if ($model::find()->where(['id' => $this->model_id]) === false) {
+                $this->addError($attribute, Module::t('comments', 'ERROR_MSG_INVALID_MODEL_ID'));
+            }
+        }
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getClass()
+    {
+        return $this->hasOne(Model::className(), ['id' => 'entity']);
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModel()
+    {
+        /** @var ActiveRecord $class */
+        $class = Model::find()->where(['id' => $this->entity])->asArray()->one();
+        $model = $class->name;
+        return $this->hasOne($model::className(), ['id' => 'entity_id']);
     }
 }

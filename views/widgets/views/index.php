@@ -16,7 +16,7 @@
     <!--/ #comment-list -->
 
     <?php if (!\Yii::$app->user->isGuest) : ?>
-        <h3><?= \Yii::t('comment', 'FRONTEND_WIDGET_COMMENTS_FORM_TITLE') ?></h3>
+        <h3><?= \Yii::t('comment', 'Comments') ?></h3>
         <?= $this->render('_form', ['model' => $model]); ?>
     <?php endif; ?>
 </div>
