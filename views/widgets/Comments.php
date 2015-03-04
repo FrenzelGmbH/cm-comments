@@ -1,12 +1,22 @@
 <?php
-namespace net\frenzel\comment\widgets;
-use net\frenzel\comment\Asset;
-use net\frenzel\comment\models\frontend\Comment;
+namespace net\frenzel\comment\views\widgets;
+
+/**
+ * @author Philipp Frenzel <philipp@frenzel.net>
+ */
+
+use net\frenzel\comment\CoreAsset AS Asset;
+use net\frenzel\comment\models\Comment;
+
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\Json;
-class Comment extends Widget
+
+/**
+ * Comment Class
+ */
+class Comments extends Widget
 {
     /**
      * @var \yii\db\ActiveRecord|null Widget model
