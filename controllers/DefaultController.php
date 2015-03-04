@@ -20,6 +20,22 @@ use net\frenzel\comment\Module;
  */
 class DefaultController extends Controller
 {
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['verbs'] = [
+            'class' => VerbFilter::className(),
+            'actions' => [
+                'create' => ['post'],
+                'update' => ['put', 'post'],
+                'delete' => ['post', 'delete']
+            ]
+        ];
+        return $behaviors;
+    }
 
 	/**
      * Create comment.

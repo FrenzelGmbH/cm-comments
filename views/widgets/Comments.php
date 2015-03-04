@@ -46,7 +46,7 @@ class Comments extends Widget
     public function run()
     {
         $class = $this->model;
-        $class = Yii::$app->base->crc32($class::className());
+        $class = $class::className();
         $models = Comment::getTree($this->model->id, $class);
         $model = new Comment(['scenario' => 'create']);
         $model->entity = $class;

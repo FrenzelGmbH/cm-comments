@@ -109,4 +109,35 @@ class Comment extends \yii\db\ActiveRecord
         }
         return $models;
     }
+
+    /**
+     * Build comments tree.
+     *
+     * @param array $data Records array
+     * @param int $rootID parent_id Root ID
+     * @return array|\yii\db\ActiveRecord[] Comments tree
+     */
+    protected static function buildTree(&$data, $rootID = 0)
+    {
+        $tree = [];
+        foreach ($data as $id => $node) {
+            if ($node->parent_id == $rootID) {
+                unset($data[$id]);
+                $node->children = self::buildTree($data, $node->id);
+                $tree[] = $node;
+            }
+        }
+        return $tree;
+    }
+    /**
+     * Delete comment.
+     *
+     * @return boolean Whether comment was deleted or not
+     */
+    public function deleteComment()
+    {
+        $this->touch('deleted_at');
+        $this->text = '';
+        return $this->save(false, ['deleted_at', 'text']);
+    }
 }

@@ -6,7 +6,7 @@
  * @var \net\frenzel\comment\models\frontend\Comment[] $models Comment models
  * @var \net\frenzel\comment\models\frontend\Comment $model New comment model
  */
-use net\frenzel\comment\Module;
+
 ?>
 
 <div id="comment">
@@ -15,8 +15,8 @@ use net\frenzel\comment\Module;
     </div>
     <!--/ #comment-list -->
 
-    <?php if (Yii::$app->user->can('createComment')) : ?>
-        <h3><?= Module::t('comment', 'FRONTEND_WIDGET_COMMENTS_FORM_TITLE') ?></h3>
+    <?php if (!\Yii::$app->user->isGuest) : ?>
+        <h3><?= \Yii::t('comment', 'FRONTEND_WIDGET_COMMENTS_FORM_TITLE') ?></h3>
         <?= $this->render('_form', ['model' => $model]); ?>
     <?php endif; ?>
 </div>
