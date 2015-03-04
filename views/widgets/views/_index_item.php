@@ -10,15 +10,14 @@ use yii\helpers\Url;
 <?php if ($models !== null) : ?>
     <?php foreach ($models as $comment) : ?>
         <div class="media" data-comment="parent" data-comment-id="<?= $comment->id ?>">
-            <?php //$avatar = $comment->author->profile->avatar_url ? $comment->author->profile->urlAttribute('avatar_url') : Yii::$app->assetManager->publish('@frenzelgmbh/cm-comments/assets/images/blog/avatar3.png')[1]; ?>
-            <div class="pull-left">
-                <img src="<?php // $avatar ?>" class="avatar img-circle width-50" alt="<?= $comment->author->profile->name ?>"/>
+            <div class="media-left">
+                <img src="http://gravatar.com/avatar/<?= $comment->author->profile->gravatar_id ?>?s=230" alt="" class="img-rounded img-responsive" />
             </div>
             <div class="media-body">
-                <div class="well" data-comment="append">
+                <div data-comment="append">
                     <div class="media-heading">
-                        <strong><?= $comment->author->profile->name ?></strong>&nbsp;
-                        <small><?= $comment->created_at ?></small>
+                        <h4><?= $comment->author->username ?>&nbsp;
+                        <small><?= $comment->created_at ?></small></h4>
                         <?php if ($comment->parent_id) { ?>
                             &nbsp;
                             <a href="#comment-<?= $comment->parent_id ?>" data-comment="ancor" data-comment-parent="<?= $comment->parent_id ?>"><i class="icon-arrow-up"></i></a>
@@ -52,7 +51,7 @@ use yii\helpers\Url;
                         <?php } ?>
                     </div>
                     <?php if (!is_null($comment->deleted_at)) { ?>
-                        <?= \Yii::t('comment', 'FRONTEND_WIDGET_COMMENT_DELETED_COMMENT_TEXT') ?>
+                        <?= \Yii::t('comment', 'entfernt') ?>
                     <?php } else { ?>
                         <div class="content" data-comment="content"><?= $comment->text ?></div>
                     <?php } ?>

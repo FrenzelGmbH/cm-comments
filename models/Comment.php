@@ -114,7 +114,8 @@ class Comment extends \yii\db\ActiveRecord
     {
         $models = self::find()->where([
             'entity_id' => $model,
-            'entity' => $class
+            'entity' => $class,
+            'deleted_at' => NULL,
         ])->orderBy(['parent_id' => 'ASC', 'created_at' => 'ASC'])->with(['author'])->all();
         if ($models !== null) {
             $models = self::buildTree($models);

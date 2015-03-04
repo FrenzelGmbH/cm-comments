@@ -73,7 +73,7 @@ class DefaultController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
                 if ($model->save(false)) {
-                    return $model->content;
+                    return $model->text;
                 } else {
                     Yii::$app->response->setStatusCode(500);
                     return \Yii::t('comment', 'FRONTEND_FLASH_FAIL_UPDATE');
@@ -88,7 +88,7 @@ class DefaultController extends Controller
      * Delete comment page.
      *
      * @param integer $id Comment ID
-     * @return string Comment content
+     * @return string Comment text
      */
     public function actionDelete($id)
     {
