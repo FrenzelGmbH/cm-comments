@@ -6,9 +6,9 @@ cm comments module adds the possibility to add comments to a random model within
 
 [![Latest Stable Version](https://poser.pugx.org/frenzelgmbh/cm-comments/v/stable.svg)](https://packagist.org/packages/frenzelgmbh/cm-comments)
 [![Build Status](https://travis-ci.org/FrenzelGmbH/cm-comments.svg?branch=master)](https://travis-ci.org/FrenzelGmbH/cm-comments)
-[![Code Climate](https://codeclimate.com/github/frenzelgmbh/cm-comments.png)](https://codeclimate.com/github/frenzelgmbh/cm-comments)
-[![Version Eye](https://www.versioneye.com/php/frenzelgmbh:cm-comments/badge.svg)](https://www.versioneye.com/php/frenzelgmbh:cm-comments)
-[![License](https://poser.pugx.org/frenzelgmbh/cm-comments/license.svg)](https://packagist.org/packages/frenzelgmbh/cm-comments)
+[![Code Climate](https://codeclimate.com/github/FrenzelGmbh/cm-comments.png)](https://codeclimate.com/github/FrenzelGmbh/cm-comments)
+[![Version Eye](https://www.versioneye.com/php/FrenzelGmbh:cm-comments/badge.svg)](https://www.versioneye.com/php/FrenzelGmbh:cm-comments)
+[![License](https://poser.pugx.org/FrenzelGmbh/cm-comments/license.svg)](https://packagist.org/packages/FrenzelGmbh/cm-comments)
 
 
 ## Installation
