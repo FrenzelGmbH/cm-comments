@@ -2,8 +2,6 @@
 
 namespace net\frenzel\comment\tests\unit;
 
-use \net\frenzel\comment\Module;
-
 /**
  * This is CommentModule unit test.
  * @license   https://github.com/philippfrenzel/yii2masonry/blob/master/LICENSE.md MIT
@@ -18,16 +16,11 @@ class CommentModuleTest extends \Codeception\TestCase\Test
     protected $tester;
 
     /**
-     * @var \yii2masonry\yii2masonry
-     */
-    protected $instance;
-
-    /**
      * @inheritdoc
      */
     protected function _before()
     {
-        $this->instance = new Module();
+        $this->instance = null;
     }
 
     /**
