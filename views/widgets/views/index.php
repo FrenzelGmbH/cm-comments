@@ -15,14 +15,15 @@
 	<div class="panel-heading">
 		<small><?= \Yii::t('comment', 'Kommentar') ?></small>
 	</div>
-	<div class="panel-body" style="min-height:120; max-height:120; overflow-y:scroll;">		
+	<div class="panel-body" style="max-height:190px; overflow-y:scroll;">
+		<?php if (!\Yii::$app->user->isGuest) : ?>	        
+	        <?= $this->render('_form', ['model' => $model]); ?>
+    	<?php endif; ?>		
+		<!--/ #comment-list -->
 		<div id="comment-list" data-comment="list">
 	        <?= $this->render('_index_item', ['models' => $models]) ?>
 	    </div>
-    	<!--/ #comment-list -->
-		<?php if (!\Yii::$app->user->isGuest) : ?>	        
-	        <?= $this->render('_form', ['model' => $model]); ?>
-    	<?php endif; ?>
+    	<!--/ #comment-list -->		
 	</div>	
 </div>
     
