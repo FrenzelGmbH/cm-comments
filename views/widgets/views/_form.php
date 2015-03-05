@@ -14,7 +14,7 @@ use yii\helpers\Html;
             <?= Html::error($model, 'text', ['data-comment' => 'form-summary', 'class' => 'help-block hidden']) ?>
         </div>
         <div class="col-sm-2">
-        	<?= Html::submitButton(\Yii::t('comment', 'senden'), ['class' => 'btn btn-success btn-sm']); ?>
+        	<?= Html::submitButton(\Yii::t('comment', 'senden'), ['class' => 'btn btn-primary']); ?>
         </div>
     </div>
 <?= Html::activeHiddenInput($model, 'parent_id', ['data-comment' => 'parent-id']) ?>
