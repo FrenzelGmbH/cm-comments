@@ -4,11 +4,11 @@ Author: Philipp Frenzel <philipp@frenzel.net>
 
 cm comments module adds the possibility to add comments to a random model within a view. this is still under heavy development, so pls. don't use in production yet!
 
-[![Latest Stable Version](https://poser.pugx.org/philippfrenzel/cm-comments/v/stable.svg)](https://packagist.org/packages/frenzelgmbh/cm-comments)
+[![Latest Stable Version](https://poser.pugx.org/frenzelgmbh/cm-comments/v/stable.svg)](https://packagist.org/packages/frenzelgmbh/cm-comments)
 [![Build Status](https://travis-ci.org/FrenzelGmbH/cm-comments.svg?branch=master)](https://travis-ci.org/FrenzelGmbH/cm-comments)
-[![Code Climate](https://codeclimate.com/github/philippfrenzel/cm-comments.png)](https://codeclimate.com/github/philippfrenzel/cm-comments)
-[![Version Eye](https://www.versioneye.com/php/philippfrenzel:cm-comments/badge.svg)](https://www.versioneye.com/php/philippfrenzel:cm-comments)
-[![License](https://poser.pugx.org/philippfrenzel/cm-comments/license.svg)](https://packagist.org/packages/philippfrenzel/cm-comments)
+[![Code Climate](https://codeclimate.com/github/frenzelgmbh/cm-comments.png)](https://codeclimate.com/github/frenzelgmbh/cm-comments)
+[![Version Eye](https://www.versioneye.com/php/frenzelgmbh:cm-comments/badge.svg)](https://www.versioneye.com/php/frenzelgmbh:cm-comments)
+[![License](https://poser.pugx.org/frenzelgmbh/cm-comments/license.svg)](https://packagist.org/packages/frenzelgmbh/cm-comments)
 
 
 ## Installation
