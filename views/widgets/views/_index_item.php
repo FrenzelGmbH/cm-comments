@@ -44,7 +44,7 @@ use yii\helpers\Url;
                                         '/comment/default/delete',
                                         'id' => $comment->id
                                     ]) ?>" data-comment-confirm="<?= \Yii::t('comment', 'FRONTEND_WIDGET_COMMENT_DELETE_CONFIRMATION') ?>">
-                                        <i class="fa fa-icon-trash"></i> <?= \Yii::t('comment', 'entfernen') ?>
+                                        <i class="fa fa-remove"></i> <?= \Yii::t('comment', 'entfernen') ?>
                                     </a>
                                 <?php } ?>
                             </div>
