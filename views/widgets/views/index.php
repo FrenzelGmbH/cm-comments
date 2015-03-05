@@ -12,7 +12,7 @@
 <div id="comment">
 
 <div class="panel panel-info">
-	<div class="panel-body">
+	<div class="panel-body" style="min-height:120; max-height:120; overflow-y:scroll;">
 		<small><?= \Yii::t('comment', 'Kommentar') ?></small>
 		<div id="comment-list" data-comment="list">
 	        <?= $this->render('_index_item', ['models' => $models]) ?>
