@@ -47,3 +47,9 @@ Configuration
 ```
 php yii migrate --migrationPath=@net/frenzel/comment/migrations
 ```
+
+- Use in view:
+
+```
+<?= \net\frenzel\comment\views\widgets\Comments::widget(['model'=>$model]); ?>
+```
