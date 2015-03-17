@@ -11,7 +11,7 @@ use yii\helpers\Url;
     <?php foreach ($models as $comment) : ?>
         <div class="media" data-comment="parent" data-comment-id="<?= $comment->id ?>">
             <div class="media-left">
-                <img src="http://gravatar.com/avatar/<?= $comment->author->profile->gravatar_id ?>?s=230" alt="" class="img-rounded img-responsive" />
+                <img src="http://gravatar.com/avatar/<?= $comment->author->profile->gravatar_id ?>?s=50" alt="" class="img-rounded" />
             </div>
             <div class="media-body">
                 <div data-comment="append">
