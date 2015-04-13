@@ -13,7 +13,10 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<small><?= \Yii::t('comment', 'Kommentar') ?></small>
+		<h4 class="panel-title">
+			<i class="fa fa-comments-o"></i> 
+			<?= \Yii::t('comment', 'Kommentar') ?>
+		</h4>
 	</div>
 	<div class="panel-body">
 		<?php if (!\Yii::$app->user->isGuest) : ?>	        
