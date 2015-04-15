@@ -3,8 +3,8 @@
  * Comment list view.
  *
  * @var \yii\web\View $this View
- * @var \net\frenzel\comment\models\frontend\Comment[] $models Comment models
- * @var \net\frenzel\comment\models\frontend\Comment $model New comment model
+ * @var \net\frenzel\comment\models\Comment[] $models Comment models
+ * @var \net\frenzel\comment\models\Comment $model New comment model
  */
 
 ?>
