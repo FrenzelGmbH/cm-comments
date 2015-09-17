@@ -116,7 +116,7 @@ class Comment extends \yii\db\ActiveRecord
             'entity_id' => $model,
             'entity' => $class,
             'deleted_at' => NULL,
-        ])->orderBy(['parent_id' => 'DESC', 'created_at' => 'DESC'])->with(['author'])->all();
+        ])->orderBy(['updated_at' => 'DESC', 'parent_id' => 'DESC'])->with(['author'])->all();
         if ($models !== null) {
             $models = self::buildTree($models);
         }
