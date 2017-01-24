@@ -63,6 +63,18 @@ class Comment extends \yii\db\ActiveRecord
             'update' => ['text'],
         ];
     }
+    
+    /**
+     * [beforeSave description]
+     * @param  [type] $insert [description]
+     * @return [type]         [description]
+     */
+    public function beforeSave($insert){
+        if($insert){
+            $this->created_by = \Yii::$app->user->id;
+        }
+        return parent::beforeSave($insert);
+    }
 
     /**
      * @inheritdoc
