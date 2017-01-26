@@ -71,7 +71,7 @@ class Comment extends \yii\db\ActiveRecord
      */
     public function beforeSave($insert){
         if($insert){
-            $this->created_by = \Yii::$app->user->id;
+            $this->created_by = \Yii::$app->getUser()->id;
         }
         return parent::beforeSave($insert);
     }
