@@ -22,6 +22,11 @@ class CommentsPlain extends Widget
      * @var \yii\db\ActiveRecord|null Widget model
      */
     public $model;
+  
+  	/**
+    * @var string $myClassName Default NULL
+    */
+  	public $myClassName = NULL;
     
     /**
      * @var array comment Javascript plugin options
@@ -46,7 +51,14 @@ class CommentsPlain extends Widget
     public function run()
     {
         $class = $this->model;
-        $class = $class::className();
+        if(is_null($this->myClassName))
+        {
+        	$class = $class::className();
+        }
+      	else
+        {
+          	$class = $this->myClassName;
+        }
         $models = Comment::getTree($this->model->id, $class);
         $model = new Comment(['scenario' => 'create']);
         $model->entity = $class;
