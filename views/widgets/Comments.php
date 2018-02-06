@@ -51,7 +51,14 @@ class Comments extends Widget
     public function run()
     {
         $class = $this->model;
-        $class = $class::className();
+        if(is_null($this->myClassName))
+        {
+        	$class = $class::className();
+        }
+      	else
+        {
+          	$class = $this->myClassName;
+        }
         $models = Comment::getTree($this->model->id, $class);
         $model = new Comment(['scenario' => 'create']);
         $model->entity = $class;
