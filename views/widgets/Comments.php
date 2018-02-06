@@ -22,7 +22,12 @@ class Comments extends Widget
      * @var \yii\db\ActiveRecord|null Widget model
      */
     public $model;
-    
+      
+  	/**
+    * @var string $myClassName Default NULL
+    */
+  	public $myClassName = NULL;
+  
     /**
      * @var array comment Javascript plugin options
      */
