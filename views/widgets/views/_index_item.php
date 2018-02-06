@@ -53,7 +53,7 @@ use yii\helpers\Url;
                     <?php if (!is_null($comment->deleted_at)) { ?>
                         <?= \Yii::t('comment', 'entfernt') ?>
                     <?php } else { ?>
-                        <div class="content" data-comment="content"><?= $comment->text ?></div>
+                        <div class="comment-content" data-comment="content"><?= $comment->text ?></div>
                     <?php } ?>
                 </div>
                 <?php if ($comment->children) { ?>
